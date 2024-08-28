@@ -214,25 +214,26 @@ export const Files = () => {
                                     <p><strong>Tipo Sanguíneo:</strong> {selectedPerson.tipoSanguineo}</p>
                                     <p><strong>Religião:</strong> {selectedPerson.religiao}</p>
 
+                                    <p><strong>Precisa de Sair o Visto:</strong> {selectedPerson.precisaSairVisto}</p>
 
                                 </div>
-                                <div>  <p><strong>Precisa de Sair o Visto:</strong> {selectedPerson.precisaSairVisto}</p>
+                                <div>
                                     <p><strong>Quando Pretende Ir ao Japão:</strong> {selectedPerson.quandoPretendeIrJapao}</p>
                                     <p><strong>Quanto Tempo Pretende Ficar:</strong> {selectedPerson.quantoTempoPretendeFicar}</p>
                                     <p><strong>Observação:</strong> {selectedPerson.observacao}</p>
-                                    <p><strong>língua [Japonês]:</strong> {selectedPerson.linguaJaponesaFala}</p>
+                                    <p><strong>língua [Japonesa]:</strong> {selectedPerson.linguaJaponesaFala}</p>
                                     <p><strong>língua [Entendimento]:</strong> {selectedPerson.linguaJaponesaEntende}</p>
                                     <p><strong>língua [Fala]:</strong> {selectedPerson.linguaJaponesaFala}</p>
                                     <p><strong>Hiragana [Leitura]:</strong> {selectedPerson.hiraganaLeitura}</p>
                                     <p><strong>Hiragana [Escrita]:</strong> {selectedPerson.hiraganaEscrita}</p>
                                     <p><strong>Katakana [Leitura]:</strong> {selectedPerson.katakanaLeitura}</p>
                                     <p><strong>Katakana [Escrita]:</strong> {selectedPerson.katakanaEscrita}</p>
+                                    <p><strong>Kanji [Leitura]:</strong> {selectedPerson.kanjiLeitura}</p>
+                                    <p><strong>Kanji [Escrita]:</strong> {selectedPerson.kanjiEscrita}</p>
 
 
                                 </div>
                                 <div>
-                                    <p><strong>Kanji [Leitura]:</strong> {selectedPerson.kanjiLeitura}</p>
-                                    <p><strong>Kanji [Escrita]:</strong> {selectedPerson.kanjiEscrita}</p>
                                     <p><strong>Peso:</strong> {selectedPerson.peso}</p>
                                     <p><strong>Altura:</strong> {selectedPerson.altura}</p>
                                     <p><strong>Calçado:</strong> {selectedPerson.calcado}</p>
@@ -242,8 +243,32 @@ export const Files = () => {
                                     <p><strong>Quanto Tempo Pretende Ficar:</strong> {selectedPerson.quantoTempoPretendeFicar}</p>
                                     <p><strong>Problema Justiça Japonesa:</strong> {selectedPerson.problemaJusticaJaponesa}</p>
                                     <p><strong>Motivo :</strong> {selectedPerson.motivoProblemaJusticaJaponesa}</p>
-
                                     <p><strong>Escolaridade:</strong> {selectedPerson.escolaridade}</p>
+                                    <p><strong>Tipo de serviço [Brasil] :</strong> {selectedPerson.tipoServicoBrasil}</p>
+                                    <p><strong>Fábrica [Brasil] :</strong> {selectedPerson.fabricaBrasil}</p>
+
+                                </div>
+                                <div>
+                                    <p><strong>Local [Brasil] :</strong> {selectedPerson.localBrasil}</p>
+                                    <p><strong>Período (Mes e Ano) [Brasil] :</strong> {selectedPerson.periodoBrasil}</p>
+
+
+                                    <br />
+                                    <p><strong>Tipo de serviço [Japão] :</strong> {selectedPerson.tipoServicoJapao}</p>
+                                    <p><strong>Fábrica [Japão] :</strong> {selectedPerson.fabricaJapao}</p>
+                                    <p><strong>Local [Japão] :</strong> {selectedPerson.localJapao}</p>
+                                    <p><strong>Período (Mes e Ano) [Japão] :</strong> {selectedPerson.periodoJapao}</p>
+
+
+
+
+                                    <p><strong>Tipo de serviço [Último Serviço] :</strong> {selectedPerson.tipoServicoUltimo}</p>
+                                    <p><strong>Fábrica [Último Serviço] :</strong> {selectedPerson.fabricaUltimoServico}</p>
+                                    <p><strong>Local [Último Serviço] :</strong> {selectedPerson.localUltimoServico}</p>
+                                    <p><strong>Período (Mes e Ano) [Último Serviço] :</strong> {selectedPerson.periodoUltimoServico}</p>
+                                    <p><strong>Tem preferência por região de trabalho :</strong> {selectedPerson.preferenciaRegiaoTrabalho}</p>
+
+
                                 </div>
                                 {/* 
                                 <p style={{ position: 'absolute', bottom: '-430px', left: '30px' }}>

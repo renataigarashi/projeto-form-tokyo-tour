@@ -85,7 +85,20 @@ function Home() {
         quandoPretendeIrJapao: '', // Novo campo
         quantoTempoPretendeFicar: '', // Novo campo
         problemaJusticaJaponesa: '', // Limpar o campo ao enviar
-        motivoProblemaJusticaJaponesa: ''
+        motivoProblemaJusticaJaponesa: '',
+        tipoServicoBrasil: '',
+        tipoServicoJapao: '',
+        tipoServicoUltimo: '',
+        fabricaBrasil: '',
+        localBrasil: '',
+        periodoBrasil: '',
+        periodoJapao: '',
+        localJapao: '',
+        fabricaJapao: '',
+        periodoUltimoServico: '',
+        localUltimoServico: '',
+        fabricaUltimoServico: '',
+        preferenciaRegiaoTrabalho: ''
     });
 
     const handleChange = (e) => {
@@ -165,7 +178,20 @@ function Home() {
                 quandoPretendeIrJapao: '', // Limpar o campo ao enviar
                 quantoTempoPretendeFicar: '',
                 problemaJusticaJaponesa: '', // Limpar o campo ao enviar
-                motivoProblemaJusticaJaponesa: ''
+                motivoProblemaJusticaJaponesa: '',
+                tipoServicoBrasil: '',
+                tipoServicoJapao: '',
+                tipoServicoUltimo: '',
+                fabricaBrasil: '',
+                localBrasil: '',
+                periodoBrasil: '',
+                periodoJapao: '',
+                localJapao: '',
+                fabricaJapao: '',
+                periodoUltimoServico: '',
+                localUltimoServico: '',
+                fabricaUltimoServico: '',
+                preferenciaRegiaoTrabalho: ''
             });
         } catch (error) {
             toast.error("Erro ao enviar os dados!");
@@ -1303,7 +1329,164 @@ function Home() {
                         <option value="Superior">Superior</option>
                         <option value="Fundamental">Fundamental</option>
                     </select>
+
                 </div>
+                <div style={{ marginTop: '60px' }} className="form-group">
+                    <label htmlFor="tipoServicoBrasil">Tipo de serviço [Brasil]</label>
+                    <input
+                        type="text"
+                        id="tipoServicoBrasil"
+                        name="tipoServicoBrasil"
+                        value={formData.tipoServicoBrasil}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="fabricaBrasil">Fábrica [Brasil]</label>
+                    <input
+                        type="text"
+                        id="fabricaBrasil"
+                        name="fabricaBrasil"
+                        value={formData.fabricaBrasil}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="localBrasil">Local [Brasil]</label>
+                    <input
+                        type="text"
+                        id="localBrasil"
+                        name="localBrasil"
+                        value={formData.localBrasil}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="periodoBrasil">Período (Mês e Ano) [Brasil]</label>
+                    <input
+                        type="text"
+                        id="periodoBrasil"
+                        name="periodoBrasil"
+                        value={formData.periodoBrasil}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+
+                <div className="form-group">
+                    <label htmlFor="tipoServicoJapao">Tipo de serviço [Japão]</label>
+                    <input
+                        type="text"
+                        id="tipoServicoJapao"
+                        name="tipoServicoJapao"
+                        value={formData.tipoServicoJapao}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="fabricaJapao">Fábrica [Japão]</label>
+                    <input
+                        type="text"
+                        id="fabricaJapao"
+                        name="fabricaJapao"
+                        value={formData.fabricaJapao}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="localJapao">Local [Japão]</label>
+                    <input
+                        type="text"
+                        id="localJapao"
+                        name="localJapao"
+                        value={formData.localJapao}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="periodoJapao">Período (Mês e Ano) [Japão]</label>
+                    <input
+                        type="text"
+                        id="periodoJapao"
+                        name="periodoJapao"
+                        value={formData.periodoJapao}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+
+                <div className="form-group">
+                    <label htmlFor="tipoServicoUltimo">Tipo de serviço [Último Serviço]</label>
+                    <input
+                        type="text"
+                        id="tipoServicoUltimo"
+                        name="tipoServicoUltimo"
+                        value={formData.tipoServicoUltimo}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="fabricaUltimoServico">Fábrica [Último Serviço]</label>
+                    <input
+                        type="text"
+                        id="fabricaUltimoServico"
+                        name="fabricaUltimoServico"
+                        value={formData.fabricaUltimoServico}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="localUltimoServico">Local [Último Serviço]</label>
+                    <input
+                        type="text"
+                        id="localUltimoServico"
+                        name="localUltimoServico"
+                        value={formData.localUltimoServico}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="periodoUltimoServico">Período (Mês e Ano) [Último Serviço]</label>
+                    <input
+                        type="text"
+                        id="periodoUltimoServico"
+                        name="periodoUltimoServico"
+                        value={formData.periodoUltimoServico}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="preferenciaRegiaoTrabalho">Tem preferência por região de trabalho?</label>
+                    <input
+                        type="text"
+                        id="preferenciaRegiaoTrabalho"
+                        name="preferenciaRegiaoTrabalho"
+                        value={formData.preferenciaRegiaoTrabalho}
+                        onChange={handleChange}
+                    />
+                </div>
+
+
+
                 <div className="form-group">
                     <label htmlFor="previsaoSaidaVisto">previsão de sair o visto?</label>
                     <input
