@@ -1458,10 +1458,12 @@ function Home() {
                 </div>
 
                 <br />
-                <h3 style={{ marginTop: '1100px', textAlign: 'center', marginLeft: '-400px', width: '100%' }}>Experiências Profissionais</h3>
+                <h3 style={{ marginTop: '1100px', textAlign: 'center', marginLeft: '-400px', width: '100%' }}>
+                    Experiências Profissionais
+                </h3>
 
                 <div className="form-group">
-                    <label htmlFor="fabricaBrasil">Fábrica [Brasil]</label>
+                    <label htmlFor="fabricaBrasil">Empresa (Brasil):</label>
                     <input
                         type="text"
                         id="fabricaBrasil"
@@ -1470,21 +1472,22 @@ function Home() {
                         onChange={handleChange}
                         required
                     />
-                    <div style={{ marginTop: '60px' }} className="form-group">
-                        <label htmlFor="tipoServicoBrasil">Tipo de serviço [Brasil]</label>
-                        <input
-                            type="text"
-                            id="tipoServicoBrasil"
-                            name="tipoServicoBrasil"
-                            value={formData.tipoServicoBrasil}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="localBrasil">Local [Brasil]</label>
+                    <label htmlFor="tipoServicoBrasil">Tipo de serviço (Brasil):</label>
+                    <input
+                        type="text"
+                        id="tipoServicoBrasil"
+                        name="tipoServicoBrasil"
+                        value={formData.tipoServicoBrasil}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="localBrasil">Local [Brasil]:</label>
                     <input
                         type="text"
                         id="localBrasil"
@@ -1496,7 +1499,7 @@ function Home() {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="periodoBrasil">Período (Mês e Ano) [Brasil]</label>
+                    <label htmlFor="periodoBrasil">Período (Mês e Ano) (Brasil):</label>
                     <input
                         type="text"
                         id="periodoBrasil"
@@ -1507,20 +1510,8 @@ function Home() {
                     />
                 </div>
 
-
                 <div className="form-group">
-                    <label htmlFor="tipoServicoJapao">Tipo de serviço [Japão]</label>
-                    <input
-                        type="text"
-                        id="tipoServicoJapao"
-                        name="tipoServicoJapao"
-                        value={formData.tipoServicoJapao}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="fabricaJapao">Fábrica [Japão]</label>
+                    <label htmlFor="fabricaJapao">Fábrica (Japão):</label>
                     <input
                         type="text"
                         id="fabricaJapao"
@@ -1532,7 +1523,19 @@ function Home() {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="localJapao">Local [Japão]</label>
+                    <label htmlFor="tipoServicoJapao">Tipo de serviço (Japão):</label>
+                    <input
+                        type="text"
+                        id="tipoServicoJapao"
+                        name="tipoServicoJapao"
+                        value={formData.tipoServicoJapao}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="localJapao">Local [Japão]:</label>
                     <input
                         type="text"
                         id="localJapao"
@@ -1544,7 +1547,7 @@ function Home() {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="periodoJapao">Período (Mês e Ano) [Japão]</label>
+                    <label htmlFor="periodoJapao">Período (Mês e Ano) [Japão]:</label>
                     <input
                         type="text"
                         id="periodoJapao"
@@ -1555,7 +1558,6 @@ function Home() {
                     />
                 </div>
 
-
                 <div className="form-group">
                     <label htmlFor="tipoServicoUltimo">Último Emprego no Brasil:</label>
                     <input
@@ -1564,11 +1566,11 @@ function Home() {
                         name="tipoServicoUltimo"
                         value={formData.utlimoEmpregoBrasil}
                         onChange={handleChange}
-
                     />
                 </div>
+
                 <div className="form-group">
-                    <label htmlFor="tipoServicoUltimo">Tipo de serviço [Último Serviço]</label>
+                    <label htmlFor="tipoServicoUltimo">Tipo de serviço [Último Serviço]:</label>
                     <input
                         type="text"
                         id="tipoServicoUltimo"
@@ -1578,8 +1580,9 @@ function Home() {
                         required
                     />
                 </div>
+
                 <div className="form-group">
-                    <label htmlFor="fabricaUltimoServico">Fábrica [Último Serviço]</label>
+                    <label htmlFor="fabricaUltimoServico">Fábrica [Último Serviço]:</label>
                     <input
                         type="text"
                         id="fabricaUltimoServico"
@@ -1591,7 +1594,7 @@ function Home() {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="localUltimoServico">Local [Último Serviço]</label>
+                    <label htmlFor="localUltimoServico">Local [Último Serviço]:</label>
                     <input
                         type="text"
                         id="localUltimoServico"
@@ -1603,7 +1606,7 @@ function Home() {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="periodoUltimoServico">Período (Mês e Ano) [Último Serviço]</label>
+                    <label htmlFor="periodoUltimoServico">Período (Mês e Ano) [Último Serviço]:</label>
                     <input
                         type="text"
                         id="periodoUltimoServico"
@@ -1624,7 +1627,6 @@ function Home() {
                         onChange={handleChange}
                     />
                 </div>
-
 
 
                 <div className="form-group">
