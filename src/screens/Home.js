@@ -1313,7 +1313,7 @@ function Home() {
                     />
                 </div>
                 <div style={{ width: '100%', textAlign: 'center' }}>
-                    <h3>Escolaridade</h3>
+                    <h3>Idioma Japonês</h3>
                 </div>
                 <div className="form-group">
                     <label htmlFor="escolaridade">Escolaridade</label>
