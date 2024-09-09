@@ -191,3 +191,38 @@ h2 {
 h3 {
     margin: 5px 0px !important;
 }
+
+#margin-top {
+    margin-top: 110px !important;
+}
+
+.names-list .no-data {
+    font-size: 18px;
+    color: #555;
+    font-weight: bold;
+    text-align: center;
+    list-style: none;
+}
+
+.names-list .no-data::after {
+    content: '...';
+    animation: loadingDots 1.5s steps(3, end) infinite;
+}
+
+@keyframes loadingDots {
+    0% {
+        content: '';
+    }
+
+    33% {
+        content: '.';
+    }
+
+    66% {
+        content: '..';
+    }
+
+    100% {
+        content: '...';
+    }
+}

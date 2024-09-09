@@ -80,19 +80,22 @@ export const Files = () => {
                         </li>
                     ))
                 ) : (
-                    <li className="no-data">Nenhum nome encontrado.</li>
+                    <li className="no-data">Carregando.</li>
                 )}
             </ul>
+
 
             {selectedPerson && (
                 <div className="modal">
                     <div className="modal-content">
                         <span className="close" onClick={handleClose}>&times;</span>
-                        <div id="person-details" className="person-details" style={{ fontSize: '9px' }}>
-                            <h3 style={{ width: '100%', textAlign: 'center', background: '#44444422' }}>Dados Pessoais</h3>
+                        <div id="person-details" className="person-details" style={{ fontSize: '8px', textTransform: 'uppercase' }}>
+                            <img src={logo} width={50} style={{ marginBottom: '-50px' }} />
+                            <h2 style={{ textAlign: 'center' }}>FICHA DE CADASTRO</h2>
+                            <h3 style={{ width: '100%', textAlign: 'center', background: 'rgba(18, 33, 126, 255)', color: 'white', textTransform: 'uppercase' }}>Dados Pessoais</h3>
                             <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                                 <div style={{ margin: '0 10px' }}>
-                                    <div style={{ width: '220px' }}>
+                                    <div style={{ width: '100px', marginTop: '10px' }}>
                                         {selectedPerson.foto && (
                                             <div className="photo-container " style={{ marginTop: '0px' }}>
                                                 <img src={selectedPerson.foto} alt="Foto" />
@@ -104,7 +107,9 @@ export const Files = () => {
 
 
 
+
                                 </div>
+
 
                                 <div style={{ margin: '0 10px' }}>
 
@@ -122,7 +127,7 @@ export const Files = () => {
                                 <div style={{ margin: '0 10px' }}>
                                     <p><strong>RG:</strong> {selectedPerson.rg}</p>
                                     <p><strong>CPF:</strong> {selectedPerson.cpf}</p>
-                                    <p><strong>Endereço:</strong> {selectedPerson.endereco}</p>
+                                    <p><strong>Endereço:</strong> <br />{selectedPerson.endereco}</p>
                                     <p><strong>Telefone Residencial:</strong> {selectedPerson.fone_residencial}</p>
                                     <p><strong>Celular:</strong> {selectedPerson.celular}</p>
                                     <p><strong>Recado:</strong> {selectedPerson.recado}</p>
@@ -133,36 +138,40 @@ export const Files = () => {
                                 </div>
                             </div>
                             {/* <hr /> */}
-                            <h3 style={{ width: '100%', textAlign: 'center', background: '#44444422' }}>Documentos</h3>
+                            <h3 style={{ width: '100%', textAlign: 'center', background: 'rgba(18, 33, 126, 255)', color: 'white', textTransform: 'uppercase' }}>Documentos</h3>
                             <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                                 <div>
                                     <p><strong>Passaporte:</strong> {selectedPerson.passaporte}</p>
                                     <p><strong>Vencimento Passaporte:</strong> {selectedPerson.vencimento_passaporte}</p>
                                     <p><strong>Visto:</strong> {selectedPerson.visto}</p>
                                     <p><strong>Vencimento Visto:</strong> {selectedPerson.vencimento_visto}</p>
-                                    <p><strong>Entrada Japão:</strong> {selectedPerson.entrada_japao}</p>
                                 </div>
                                 <div>
+                                    <p><strong>Entrada Japão:</strong> {selectedPerson.entrada_japao}</p>
                                     <p><strong>CNH:</strong> {selectedPerson.cnh}</p>
                                     <p><strong>CNH País:</strong> {selectedPerson.cnh_pais}</p>
                                     <p><strong>CNH Qual:</strong> {selectedPerson.cnh_qual}</p>
-                                    <p><strong>Nome do País:</strong> {selectedPerson.pais_nome}</p>
-                                    <p><strong>Pode fazer hora extra:</strong> {selectedPerson.hora_extra}</p>
                                 </div>
 
 
                             </div>
-                            <h3 style={{ width: '100%', textAlign: 'center', background: '#44444422' }}>Familiares</h3>
+                            <h3 style={{ width: '100%', textAlign: 'center', background: 'rgba(18, 33, 126, 255)', color: 'white', textTransform: 'uppercase' }}>Familiares</h3>
                             <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                                 <div>
+                                    <p style={{ width: '200px' }}><strong>Nome dos País:</strong> <br />{selectedPerson.pais_nome}</p>
                                     <p><strong>Nome do Cônjuge:</strong> {selectedPerson.conjuge_nome}</p>
                                     <p><strong>Idade do Cônjuge:</strong> {selectedPerson.conjuge_idade}</p>
-                                    <p><strong>Ocupação:</strong> {selectedPerson.ocupacao}</p>
+                                </div>
+                                <div>
+                                    <p><strong>Ocupação do Cônjuge:</strong> {selectedPerson.ocupacao}</p>
+                                    <p><strong>Nome do Filho(a):</strong> {selectedPerson.nomeFilho}</p>
+                                    <p><strong>Idade do Filho(a):</strong> {selectedPerson.idadeFilho}</p>
+                                    <p><strong>Ocupação do Filho(a):</strong> {selectedPerson.ocupacaoFilho}</p>
                                 </div>
 
 
                             </div>
-                            <h3 style={{ width: '100%', textAlign: 'center', background: '#44444422' }}>Saúde</h3>
+                            <h3 style={{ width: '100%', textAlign: 'center', background: 'rgba(18, 33, 126, 255)', color: 'white', textTransform: 'uppercase' }}>Saúde</h3>
                             <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                                 <div>
 
@@ -173,38 +182,30 @@ export const Files = () => {
                                     <p><strong>Doença Crônica:</strong> {selectedPerson.doencaCronica}</p>
                                     <p><strong>Consegue distinguir cores:</strong> {selectedPerson.consegueDistinguirCores}</p>
                                     <p><strong>Problema de Coluna:</strong> {selectedPerson.problemaColuna}</p>
-                                    <p><strong>Sofreu Cirurgia:</strong> {selectedPerson.sofreuCirurgia}</p>
-                                    <p><strong>Toma Medicamentos:</strong> {selectedPerson.tomaMedicamentos}</p>
                                 </div>
                                 <div>
+                                    <p><strong>Sofreu Cirurgia:</strong> {selectedPerson.sofreuCirurgia}</p>
+                                    <p><strong>Toma Medicamentos:</strong> {selectedPerson.tomaMedicamentos}</p>
                                     <p><strong>Tipo de Medicamento:</strong> {selectedPerson.especificacaoMedicamentos}</p>
                                     <p><strong>Epilepsia:</strong> {selectedPerson.epilepsia}</p>
                                     <p><strong>Tendinite:</strong> {selectedPerson.tendinite}</p>
                                     <p><strong>Usa Óculos:</strong> {selectedPerson.usaOculos}</p>
                                     <p><strong>Graus Óculos:</strong> {selectedPerson.grausOculos}</p>
+
+
+
+                                </div>
+                                <div>
                                     <p><strong>Alergia:</strong> {selectedPerson.alergia}</p>
                                     <p><strong>Tipo de Alergia:</strong> {selectedPerson.especificacaoAlergia}</p>
                                     <p><strong>Asma:</strong> {selectedPerson.asma}</p>
                                     <p><strong>Deficiência Auditiva:</strong> {selectedPerson.deficienciaAuditiva}</p>
-                                </div>
-
-                            </div>
-                            <h3 style={{ width: '100%', textAlign: 'center', background: '#44444422' }}>Piercing e tatuagens</h3>
-                            <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                                {/* <div style={{ margin: '-20px 0' }}>
-                                    <p><strong>Possui Tatuagem/Piercing:</strong> {selectedPerson.possuiTatuagemPiercing}</p>
-                                </div> */}
-                                <div>
-                                    <p><strong>Possui Tatuagem/Piercing:</strong> {selectedPerson.possuiTatuagemPiercing}</p>
-                                </div>
-
-                            </div>
-                            <h3 style={{ width: '100%', textAlign: 'center', background: '#44444422' }}>Informações Adicionais</h3>
-                            <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                                <div>
                                     <p><strong>Gravidez:</strong> {selectedPerson.gravidez}</p>
                                     <p><strong>Tempo de Gravidez:</strong> {selectedPerson.tempoGravidez}</p>
                                     <p><strong>Restrição para Trabalhar em Pé:</strong> {selectedPerson.restricaoTrabalharEmPe}</p>
+
+                                </div>
+                                <div>
                                     <p><strong>Problema Psicológico:</strong> {selectedPerson.problemaPsicologico}</p>
                                     <p><strong>Tipo Problema Psicológico:</strong> {selectedPerson.especificacaoProblemaPsicologico}</p>
                                     <p><strong>Doença Grave:</strong> {selectedPerson.doencaGrave}</p>
@@ -212,17 +213,68 @@ export const Files = () => {
                                     <p><strong>Pressão Arterial:</strong> {selectedPerson.pressaoArterial}</p>
                                     <p><strong>Habilidade:</strong> {selectedPerson.habilidade}</p>
                                     <p><strong>Tipo Sanguíneo:</strong> {selectedPerson.tipoSanguineo}</p>
-                                    <p><strong>Religião:</strong> {selectedPerson.religiao}</p>
+                                </div>
+                            </div>
 
-                                    <p><strong>Precisa de Sair o Visto:</strong> {selectedPerson.precisaSairVisto}</p>
+                            <h3 style={{ width: '100%', textAlign: 'center', background: 'rgba(18, 33, 126, 255)', color: 'white', textTransform: 'uppercase' }}>Currículo</h3>
+                            <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+                                <div>
+                                    <p><strong>Fábrica [Brasil] :</strong> {selectedPerson.fabricaBrasil}</p>
+                                    <p><strong>Tipo de serviço [Brasil] :</strong> {selectedPerson.tipoServicoBrasil}</p>
+                                    <p><strong>Local [Brasil] :</strong> {selectedPerson.localBrasil}</p>
+                                    <p style={{ width: '200px' }}><strong>Período (Mes e Ano) [Brasil] :</strong> {selectedPerson.periodoBrasil}</p>
+
+
+
+
 
                                 </div>
                                 <div>
+                                    <p><strong>Fábrica [Japão] :</strong> {selectedPerson.fabricaJapao}</p>
+                                    <p><strong>Tipo de serviço [Japão] :</strong> {selectedPerson.tipoServicoJapao}</p>
+                                    <p><strong>Local [Japão] :</strong> {selectedPerson.localJapao}</p>
+                                    <p><strong>Período (Mes e Ano) [Japão] :</strong> {selectedPerson.periodoJapao}</p>
+                                    <p style={{ width: '200px' }}> <strong>Tem preferência por região de trabalho :</strong> {selectedPerson.preferenciaRegiaoTrabalho}</p>
+
+
+
+
+                                </div>
+                                <div>
+                                    <p><strong>Último  Emprego no Brasil :</strong> {selectedPerson.utlimoEmpregoBrasil}</p>
+                                    <p><strong>Empresa [Último Serviço] :</strong> {selectedPerson.fabricaUltimoServico}</p>
+                                    <p style={{ width: '200px' }}><strong>Tipo de serviço [Último Serviço] :</strong> {selectedPerson.tipoServicoUltimo}</p>
+                                    <p><strong>Local [Último Serviço] :</strong> {selectedPerson.localUltimoServico}</p>
+                                    <p style={{ width: '200px' }}><strong>Período (Mes e Ano) [Último Serviço] :</strong> {selectedPerson.periodoUltimoServico}</p>
+                                </div>
+                            </div>
+
+
+
+                            <h3 style={{ width: '100%', textAlign: 'center', background: 'rgba(18, 33, 126, 255)', color: 'white', textTransform: 'uppercase' }}>Informações Adicionais</h3>
+                            <div style={{ display: 'flex', justifyContent: 'space-evenly', margin: 'auto' }}>
+                                <div>
+                                    <p><strong>Escolaridade:</strong> {selectedPerson.escolaridade}</p>
+                                    <p><strong>Possui Tatuagem/Piercing:</strong> {selectedPerson.possuiTatuagemPiercing}</p>
+                                    <p><strong>Manequim:</strong> </p>
+                                    <p><strong>Peso:</strong> {selectedPerson.peso}</p>
+                                    <p><strong>Altura:</strong> {selectedPerson.altura}</p>
+                                    <p><strong>Calçado:</strong> {selectedPerson.calcado}</p>
                                     <p><strong>Quando Pretende Ir ao Japão:</strong> {selectedPerson.quandoPretendeIrJapao}</p>
                                     <p><strong>Quanto Tempo Pretende Ficar:</strong> {selectedPerson.quantoTempoPretendeFicar}</p>
-                                    <p><strong>Observação:</strong> {selectedPerson.observacao}</p>
+
+                                </div>
+                                <div>
+                                    <p><strong>Previsão de Sair o Visto:</strong> {selectedPerson.precisaSairVisto}</p>
+                                    <p><strong>Pode fazer hora extra:</strong> {selectedPerson.hora_extra}</p>
+                                    <p><strong>Religião:</strong> {selectedPerson.religiao}</p>
+                                    <p><strong>Problema Justiça Japonesa:</strong> {selectedPerson.problemaJusticaJaponesa}</p>
+                                    <p><strong>Motivo [Problema com a justiça Japonesa]:</strong> {selectedPerson.motivoProblemaJusticaJaponesa}</p>
                                     <p><strong>língua [Japonesa]:</strong> {selectedPerson.linguaJaponesaFala}</p>
                                     <p><strong>língua [Entendimento]:</strong> {selectedPerson.linguaJaponesaEntende}</p>
+
+                                </div>
+                                <div>
                                     <p><strong>língua [Fala]:</strong> {selectedPerson.linguaJaponesaFala}</p>
                                     <p><strong>Hiragana [Leitura]:</strong> {selectedPerson.hiraganaLeitura}</p>
                                     <p><strong>Hiragana [Escrita]:</strong> {selectedPerson.hiraganaEscrita}</p>
@@ -230,51 +282,66 @@ export const Files = () => {
                                     <p><strong>Katakana [Escrita]:</strong> {selectedPerson.katakanaEscrita}</p>
                                     <p><strong>Kanji [Leitura]:</strong> {selectedPerson.kanjiLeitura}</p>
                                     <p><strong>Kanji [Escrita]:</strong> {selectedPerson.kanjiEscrita}</p>
-
-
-                                </div>
-                                <div>
-                                    <p><strong>Peso:</strong> {selectedPerson.peso}</p>
-                                    <p><strong>Altura:</strong> {selectedPerson.altura}</p>
-                                    <p><strong>Calçado:</strong> {selectedPerson.calcado}</p>
-                                    <p><strong>Calçado:</strong> {selectedPerson.calcado}</p>
-                                    <p><strong>Previsão Saida Visto:</strong> {selectedPerson.previsaoSaidaVisto}</p>
-                                    <p><strong>Quando Pretende Ir Japao:</strong> {selectedPerson.quandoPretendeIrJapao}</p>
-                                    <p><strong>Quanto Tempo Pretende Ficar:</strong> {selectedPerson.quantoTempoPretendeFicar}</p>
-                                    <p><strong>Problema Justiça Japonesa:</strong> {selectedPerson.problemaJusticaJaponesa}</p>
-                                    <p><strong>Motivo :</strong> {selectedPerson.motivoProblemaJusticaJaponesa}</p>
-                                    <p><strong>Escolaridade:</strong> {selectedPerson.escolaridade}</p>
-                                    <p><strong>Tipo de serviço [Brasil] :</strong> {selectedPerson.tipoServicoBrasil}</p>
-                                    <p><strong>Fábrica [Brasil] :</strong> {selectedPerson.fabricaBrasil}</p>
+                                    <p><strong>Observação:</strong> <br /> {selectedPerson.observacao}</p>
 
                                 </div>
-                                <div>
-                                    <p><strong>Local [Brasil] :</strong> {selectedPerson.localBrasil}</p>
-                                    <p><strong>Período (Mes e Ano) [Brasil] :</strong> {selectedPerson.periodoBrasil}</p>
 
-
-                                    <br />
-                                    <p><strong>Tipo de serviço [Japão] :</strong> {selectedPerson.tipoServicoJapao}</p>
-                                    <p><strong>Fábrica [Japão] :</strong> {selectedPerson.fabricaJapao}</p>
-                                    <p><strong>Local [Japão] :</strong> {selectedPerson.localJapao}</p>
-                                    <p><strong>Período (Mes e Ano) [Japão] :</strong> {selectedPerson.periodoJapao}</p>
-
-
-
-
-                                    <p><strong>Tipo de serviço [Último Serviço] :</strong> {selectedPerson.tipoServicoUltimo}</p>
-                                    <p><strong>Fábrica [Último Serviço] :</strong> {selectedPerson.fabricaUltimoServico}</p>
-                                    <p><strong>Local [Último Serviço] :</strong> {selectedPerson.localUltimoServico}</p>
-                                    <p><strong>Período (Mes e Ano) [Último Serviço] :</strong> {selectedPerson.periodoUltimoServico}</p>
-                                    <p><strong>Tem preferência por região de trabalho :</strong> {selectedPerson.preferenciaRegiaoTrabalho}</p>
-
-
+                            </div>
+                            <div style={{ marginTop: '120px' }}>
+                                <h2 style={{ textAlign: 'center', fontSize: '24px !important' }}>Mais imagens:</h2>
+                                <div style={{ display: 'grid', gridTemplateColumns: '5fr 5fr', margin: 'auto' }}>
+                                    {selectedPerson.foto02 && (
+                                        <div className="photo-container" style={{ marginTop: '0px' }}>
+                                            {selectedPerson.foto02 && (
+                                                <img src={selectedPerson.foto02} alt="Foto 02" style={{ width: '200px', margin: 'auto', display: 'flex' }} />
+                                            )}
+                                        </div>
+                                    )}
+                                    {selectedPerson.foto02 && (
+                                        <div className="photo-container" style={{ marginTop: '0px' }}>
+                                            {selectedPerson.foto02 && (
+                                                <img src={selectedPerson.foto02} alt="Foto 02" style={{ width: '200px', margin: 'auto', display: 'flex' }} />
+                                            )}
+                                        </div>
+                                    )}
                                 </div>
-                                {/* 
-                                <p style={{ position: 'absolute', bottom: '-430px', left: '30px' }}>
-                                    <strong>Nome da empresa aqui</strong>
-                                </p> */}
+                                <div style={{ display: 'grid', gridTemplateColumns: '5fr 5fr', margin: 'auto' }}>
+                                    {selectedPerson.foto02 && (
+                                        <div className="photo-container" style={{ marginTop: '0px' }}>
+                                            {selectedPerson.foto02 && (
+                                                <img src={selectedPerson.foto02} alt="Foto 02" style={{ width: '200px', margin: 'auto', display: 'flex' }} />
+                                            )}
+                                        </div>
+                                    )}
+                                    {selectedPerson.foto02 && (
+                                        <div className="photo-container" style={{ marginTop: '0px' }}>
+                                            {selectedPerson.foto02 && (
+                                                <img src={selectedPerson.foto02} alt="Foto 02" style={{ width: '200px', margin: 'auto', display: 'flex' }} />
+                                            )}
+                                        </div>
+                                    )}
+                                </div>
 
+                                {/* {selectedPerson.foto03 && (
+                                        <div className="photo-container" style={{ marginTop: '0px' }}>
+                                            {selectedPerson.foto03 && (
+                                                <img src={selectedPerson.foto03} alt="Foto 03" />
+                                            )}
+                                        </div>
+                                    )}    {selectedPerson.foto04 && (
+                                        <div className="photo-container" style={{ marginTop: '0px' }}>
+                                            {selectedPerson.foto04 && (
+                                                <img src={selectedPerson.foto04} alt="Foto 04" />
+                                            )}
+                                        </div>
+                                    )}
+                                    {selectedPerson.foto05 && (
+                                        <div className="photo-container" style={{ marginTop: '0px' }}>
+                                            {selectedPerson.foto05 && (
+                                                <img src={selectedPerson.foto05} alt="Foto 05" />
+                                            )}
+                                        </div>
+                                    )} */}
                             </div>
                         </div>
                         <button className="download-button" onClick={handleDownloadPDF}>

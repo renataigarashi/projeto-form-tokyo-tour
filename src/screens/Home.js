@@ -34,6 +34,7 @@ function Home() {
         ocupacao: "",
         pais_nome: "",
         foto: null,
+        foto02: null,
         fumante: "",
         hora_extra: "",
         diabetes: '',
@@ -98,7 +99,11 @@ function Home() {
         periodoUltimoServico: '',
         localUltimoServico: '',
         fabricaUltimoServico: '',
-        preferenciaRegiaoTrabalho: ''
+        preferenciaRegiaoTrabalho: '',
+        nomeFilho: '',
+        idadeFilho: '',
+        ocupacaoFilho: '',
+        utlimoEmpregoBrasil: ''
     });
 
     const handleChange = (e) => {
@@ -115,6 +120,18 @@ function Home() {
 
         reader.onloadend = () => {
             setFormData({ ...formData, foto: reader.result });
+        };
+
+        if (file) {
+            reader.readAsDataURL(file); // Converte a imagem para uma string base64
+        }
+    };
+    const handleFileChange2 = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+
+        reader.onloadend = () => {
+            setFormData({ ...formData, foto02: reader.result });
         };
 
         if (file) {
@@ -157,6 +174,7 @@ function Home() {
                 ocupacao: "",
                 pais_nome: "",
                 foto: null,
+                foto02: null,
                 fumante: "",
                 hora_extra: "",
                 especificacaoAlergia: "",
@@ -191,7 +209,11 @@ function Home() {
                 periodoUltimoServico: '',
                 localUltimoServico: '',
                 fabricaUltimoServico: '',
-                preferenciaRegiaoTrabalho: ''
+                preferenciaRegiaoTrabalho: '',
+                nomeFilho: '',
+                idadeFilho: '',
+                ocupacaoFilho: '',
+                utlimoEmpregoBrasil: ''
             });
         } catch (error) {
             toast.error("Erro ao enviar os dados!");
@@ -218,130 +240,10 @@ function Home() {
                 <img src={logo} alt="Logo" className="logo" style={{ width: '20%', cursor: 'pointer' }} />
             </header>
             <hr />
-            <form style={{ marginTop: '50px' }} onSubmit={handleSubmit}>
+            <h3 className="text-com-margin-nega" >Dados Pessoais</h3>
+            <form onSubmit={handleSubmit}>
                 <div className="form-group">
 
-
-                    <div className="form-group">
-                        <label htmlFor="fluencia">Fluência em Japonês [Fala]</label>
-                        <select
-                            id="fluencia"
-                            name="linguaJaponesaFala"
-                            value={formData.linguaJaponesaFala}
-                            onChange={handleChange}
-                            required
-                        >
-                            <option value="">Selecione...</option>
-                            <option value="Nada">Nada</option>
-                            <option value="Pouco">Pouco</option>
-                            <option value="Fluente">Fluente</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="fluencia">Fluência em Japonês [Entende]</label>
-                        <select
-                            id="fluencia"
-                            name="linguaJaponesaEntende"
-                            value={formData.linguaJaponesaEntende}
-                            onChange={handleChange}
-                            required
-                        >
-                            <option value="">Selecione...</option>
-                            <option value="Nada">Nada</option>
-                            <option value="Pouco">Pouco</option>
-                            <option value="Fluente">Fluente</option>
-                        </select>
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="fluencia">HIRAGANA [Leitura]</label>
-                        <select
-                            id="fluencia"
-                            name="hiraganaLeitura"
-                            value={formData.hiraganaLeitura}
-                            onChange={handleChange}
-                            required
-                        >
-                            <option value="">Selecione...</option>
-                            <option value="Nada">Nada</option>
-                            <option value="Pouco">Pouco</option>
-                            <option value="Fluente">Fluente</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="fluencia">HIRAGANA [Escrita]</label>
-                        <select
-                            id="fluencia"
-                            name="hiraganaEscrita"
-                            value={formData.hiraganaEscrita}
-                            onChange={handleChange}
-                        >
-                            <option value="">Selecione...</option>
-                            <option value="Nada">Nada</option>
-                            <option value="Pouco">Pouco</option>
-                            <option value="Fluente">Fluente</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="fluencia">katakana [Leitura]</label>
-                        <select
-                            id="fluencia"
-                            name="hiraganaEscrita"
-                            value={formData.katakanaLeitura}
-                            onChange={handleChange}
-
-                        >
-                            <option value="">Selecione...</option>
-                            <option value="Nada">Nada</option>
-                            <option value="Pouco">Pouco</option>
-                            <option value="Fluente">Fluente</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="fluencia">katakana [Escrita]</label>
-                        <select
-                            id="fluencia"
-                            name="katakanaEscrita"
-                            value={formData.katakanaEscrita}
-                            onChange={handleChange}
-                            required
-                        >
-                            <option value="">Selecione...</option>
-                            <option value="Nada">Nada</option>
-                            <option value="Pouco">Pouco</option>
-                            <option value="Fluente">Fluente</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="fluencia">KANJI [Leitura]</label>
-                        <select
-                            id="fluencia"
-                            name="kanjiLeitura"
-                            value={formData.kanjiLeitura}
-                            onChange={handleChange}
-                            required
-                        >
-                            <option value="">Selecione...</option>
-                            <option value="Nada">Nada</option>
-                            <option value="Pouco">Pouco</option>
-                            <option value="Fluente">Fluente</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="fluencia">KANJI [Escrita]</label>
-                        <select
-                            id="fluencia"
-                            name="kanjiEscrita"
-                            value={formData.kanjiEscrita}
-                            onChange={handleChange}
-                            required
-                        >
-                            <option value="">Selecione...</option>
-                            <option value="Nada">Nada</option>
-                            <option value="Pouco">Pouco</option>
-                            <option value="Fluente">Fluente</option>
-                        </select>
-                    </div>
 
 
                     <label htmlFor="nome">Nome Completo</label>
@@ -608,6 +510,10 @@ function Home() {
                         onChange={handleChange}
                     />
                 </div>
+                <div style={{ width: '100%', textAlign: 'center' }}>
+                    <h3>Documentos</h3>
+                </div>
+
                 <div className="form-group">
                     <label htmlFor="passaporte">Nº Passaporte</label>
                     <input
@@ -782,7 +688,9 @@ function Home() {
                         </label>
                     </div>
                 </div>
-
+                <div style={{ width: '100%', textAlign: 'center' }}>
+                    <h3>Familiares</h3>
+                </div>
                 <div className="form-group">
                     <label htmlFor="conjuge_nome">Nome do Cônjuge</label>
                     <input
@@ -793,6 +701,41 @@ function Home() {
                         onChange={handleChange}
                     />
                 </div>
+
+                <div className="form-group">
+                    <label htmlFor="nomeFilho">Nome do Filho(a):</label>
+                    <input
+                        type="text"
+                        id="nomeFilho"
+                        name="nomeFilho"
+                        value={formData.nomeFilho}
+                        onChange={handleChange}
+                    />
+                </div>
+
+
+                <div className="form-group">
+                    <label htmlFor="idadeFilho">Idade do Filho(a):</label>
+                    <input
+                        type="text"
+                        id="idadeFilho"
+                        name="idadeFilho"
+                        value={formData.idadeFilho}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="ocupacaoFilho">Ocupação do Filho(a):</label>
+                    <input
+                        type="text"
+                        id="ocupacaoFilho"
+                        name="ocupacaoFilho"
+                        value={formData.ocupacaoFilho}
+                        onChange={handleChange}
+                    />
+                </div>
+
+
                 <div className="form-group">
                     <label htmlFor="conjuge_idade">Idade do Cônjuge</label>
                     <input
@@ -823,7 +766,9 @@ function Home() {
                         onChange={handleChange}
                     />
                 </div>
-
+                <div style={{ width: '100%', textAlign: 'center' }}>
+                    <h3>Saúde</h3>
+                </div>
                 <div className="form-group">
                     <label>É fumante?</label>
                     <div>
@@ -891,6 +836,9 @@ function Home() {
                         value={formData.diabetes}
                         onChange={handleChange}
                     >
+                        <option value="" disabled>
+                            Selecione
+                        </option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
@@ -903,6 +851,9 @@ function Home() {
                         value={formData.problemasRespiratorios}
                         onChange={handleChange}
                     >
+                        <option value="" disabled>
+                            Selecione
+                        </option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
@@ -915,6 +866,9 @@ function Home() {
                         value={formData.podeFazerTurnoAlternado}
                         onChange={handleChange}
                     >
+                        <option value="" disabled>
+                            Selecione
+                        </option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
@@ -927,6 +881,9 @@ function Home() {
                         value={formData.doencaCronica}
                         onChange={handleChange}
                     >
+                        <option value="" disabled>
+                            Selecione
+                        </option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
@@ -939,6 +896,9 @@ function Home() {
                         value={formData.consegueDistinguirCores}
                         onChange={handleChange}
                     >
+                        <option value="" disabled>
+                            Selecione
+                        </option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
@@ -951,6 +911,9 @@ function Home() {
                         value={formData.problemaColuna}
                         onChange={handleChange}
                     >
+                        <option value="" disabled>
+                            Selecione
+                        </option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
@@ -963,6 +926,9 @@ function Home() {
                         value={formData.sofreuCirurgia}
                         onChange={handleChange}
                     >
+                        <option value="" disabled>
+                            Selecione
+                        </option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
@@ -975,6 +941,9 @@ function Home() {
                         value={formData.tomaMedicamentos}
                         onChange={handleChange}
                     >
+                        <option value="" disabled>
+                            Selecione
+                        </option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
@@ -999,6 +968,9 @@ function Home() {
                         value={formData.gravidez}
                         onChange={handleChange}
                     >
+                        <option value="" disabled>
+                            Selecione
+                        </option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
@@ -1011,6 +983,9 @@ function Home() {
                         value={formData.tendinite}
                         onChange={handleChange}
                     >
+                        <option value="" disabled>
+                            Selecione
+                        </option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
@@ -1023,10 +998,14 @@ function Home() {
                         value={formData.usaOculos}
                         onChange={handleChange}
                     >
+                        <option value="" disabled>
+                            Selecione
+                        </option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
                 </label>
+
 
                 {formData.usaOculos === 'sim' && (
                     <label>
@@ -1047,6 +1026,9 @@ function Home() {
                         value={formData.alergia}
                         onChange={handleChange}
                     >
+                        <option value="" disabled>
+                            Selecione
+                        </option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
@@ -1070,6 +1052,9 @@ function Home() {
                         value={formData.asma}
                         onChange={handleChange}
                     >
+                        <option value="" disabled>
+                            Selecione
+                        </option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
@@ -1082,6 +1067,9 @@ function Home() {
                         value={formData.deficienciaAuditiva}
                         onChange={handleChange}
                     >
+                        <option value="" disabled>
+                            Selecione
+                        </option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
@@ -1094,6 +1082,9 @@ function Home() {
                         value={formData.possuiTatuagemPiercing}
                         onChange={handleChange}
                     >
+                        <option value="" disabled>
+                            Selecione
+                        </option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
@@ -1117,6 +1108,9 @@ function Home() {
                         value={formData.restricaoTrabalharEmPe}
                         onChange={handleChange}
                     >
+                        <option value="" disabled>
+                            Selecione
+                        </option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
@@ -1129,6 +1123,9 @@ function Home() {
                         value={formData.problemaPsicologico}
                         onChange={handleChange}
                     >
+                        <option value="" disabled>
+                            Selecione
+                        </option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
@@ -1153,6 +1150,9 @@ function Home() {
                         value={formData.doencaGrave}
                         onChange={handleChange}
                     >
+                        <option value="" disabled>
+                            Selecione
+                        </option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
@@ -1242,7 +1242,7 @@ function Home() {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="foto">Foto</label>
+                    <label htmlFor="foto">Foto (Rosto)</label>
                     <input
                         type="file"
                         id="foto"
@@ -1251,7 +1251,6 @@ function Home() {
                         onChange={handleFileChange}
                     />
                 </div>
-
 
 
 
@@ -1313,6 +1312,9 @@ function Home() {
                         onChange={handleChange}
                     />
                 </div>
+                <div style={{ width: '100%', textAlign: 'center' }}>
+                    <h3>Escolaridade</h3>
+                </div>
                 <div className="form-group">
                     <label htmlFor="escolaridade">Escolaridade</label>
                     <select
@@ -1331,17 +1333,133 @@ function Home() {
                     </select>
 
                 </div>
-                <div style={{ marginTop: '60px' }} className="form-group">
-                    <label htmlFor="tipoServicoBrasil">Tipo de serviço [Brasil]</label>
-                    <input
-                        type="text"
-                        id="tipoServicoBrasil"
-                        name="tipoServicoBrasil"
-                        value={formData.tipoServicoBrasil}
+
+
+
+                <div className="form-group">
+                    <label htmlFor="fluencia">Fluência em Japonês [Fala]</label>
+                    <select
+                        id="fluencia"
+                        name="linguaJaponesaFala"
+                        value={formData.linguaJaponesaFala}
                         onChange={handleChange}
                         required
-                    />
+                    >
+                        <option value="">Selecione...</option>
+                        <option value="Nada">Nada</option>
+                        <option value="Pouco">Pouco</option>
+                        <option value="Fluente">Fluente</option>
+                    </select>
                 </div>
+                <div className="form-group">
+                    <label htmlFor="fluencia">Fluência em Japonês [Entende]</label>
+                    <select
+                        id="fluencia"
+                        name="linguaJaponesaEntende"
+                        value={formData.linguaJaponesaEntende}
+                        onChange={handleChange}
+                        required
+                    >
+                        <option value="">Selecione...</option>
+                        <option value="Nada">Nada</option>
+                        <option value="Pouco">Pouco</option>
+                        <option value="Fluente">Fluente</option>
+                    </select>
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="fluencia">HIRAGANA [Leitura]</label>
+                    <select
+                        id="fluencia"
+                        name="hiraganaLeitura"
+                        value={formData.hiraganaLeitura}
+                        onChange={handleChange}
+                        required
+                    >
+                        <option value="">Selecione...</option>
+                        <option value="Nada">Nada</option>
+                        <option value="Pouco">Pouco</option>
+                        <option value="Fluente">Fluente</option>
+                    </select>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="fluencia">HIRAGANA [Escrita]</label>
+                    <select
+                        id="fluencia"
+                        name="hiraganaEscrita"
+                        value={formData.hiraganaEscrita}
+                        onChange={handleChange}
+                    >
+                        <option value="">Selecione...</option>
+                        <option value="Nada">Nada</option>
+                        <option value="Pouco">Pouco</option>
+                        <option value="Fluente">Fluente</option>
+                    </select>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="fluencia">katakana [Leitura]</label>
+                    <select
+                        id="fluencia"
+                        name="hiraganaEscrita"
+                        value={formData.katakanaLeitura}
+                        onChange={handleChange}
+
+                    >
+                        <option value="">Selecione...</option>
+                        <option value="Nada">Nada</option>
+                        <option value="Pouco">Pouco</option>
+                        <option value="Fluente">Fluente</option>
+                    </select>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="fluencia">katakana [Escrita]</label>
+                    <select
+                        id="fluencia"
+                        name="katakanaEscrita"
+                        value={formData.katakanaEscrita}
+                        onChange={handleChange}
+                        required
+                    >
+                        <option value="">Selecione...</option>
+                        <option value="Nada">Nada</option>
+                        <option value="Pouco">Pouco</option>
+                        <option value="Fluente">Fluente</option>
+                    </select>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="fluencia">KANJI [Leitura]</label>
+                    <select
+                        id="fluencia"
+                        name="kanjiLeitura"
+                        value={formData.kanjiLeitura}
+                        onChange={handleChange}
+                        required
+                    >
+                        <option value="">Selecione...</option>
+                        <option value="Nada">Nada</option>
+                        <option value="Pouco">Pouco</option>
+                        <option value="Fluente">Fluente</option>
+                    </select>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="fluencia">KANJI [Escrita]</label>
+                    <select
+                        id="fluencia"
+                        name="kanjiEscrita"
+                        value={formData.kanjiEscrita}
+                        onChange={handleChange}
+                        required
+                    >
+                        <option value="">Selecione...</option>
+                        <option value="Nada">Nada</option>
+                        <option value="Pouco">Pouco</option>
+                        <option value="Fluente">Fluente</option>
+                    </select>
+                </div>
+
+                <br />
+                <h3 style={{ marginTop: '1100px', textAlign: 'center', marginLeft: '-400px', width: '100%' }}>Experiências Profissionais</h3>
+
                 <div className="form-group">
                     <label htmlFor="fabricaBrasil">Fábrica [Brasil]</label>
                     <input
@@ -1352,6 +1470,17 @@ function Home() {
                         onChange={handleChange}
                         required
                     />
+                    <div style={{ marginTop: '60px' }} className="form-group">
+                        <label htmlFor="tipoServicoBrasil">Tipo de serviço [Brasil]</label>
+                        <input
+                            type="text"
+                            id="tipoServicoBrasil"
+                            name="tipoServicoBrasil"
+                            value={formData.tipoServicoBrasil}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
                 </div>
 
                 <div className="form-group">
@@ -1427,6 +1556,17 @@ function Home() {
                 </div>
 
 
+                <div className="form-group">
+                    <label htmlFor="tipoServicoUltimo">Último Emprego no Brasil:</label>
+                    <input
+                        type="text"
+                        id="tipoServicoUltimo"
+                        name="tipoServicoUltimo"
+                        value={formData.utlimoEmpregoBrasil}
+                        onChange={handleChange}
+
+                    />
+                </div>
                 <div className="form-group">
                     <label htmlFor="tipoServicoUltimo">Tipo de serviço [Último Serviço]</label>
                     <input
@@ -1548,7 +1688,7 @@ function Home() {
                 </div>
                 {isProblemaJustica === 'Sim' && (
                     <div className="form-group">
-                        <label htmlFor="motivoProblemaJusticaJaponesa">Qual o motivo?</label>
+                        <label htmlFor="motivoProblemaJusticaJaponesa">Qual o motivo? [Problema com a justiça Japonesa]</label>
                         <textarea
                             id="motivoProblemaJusticaJaponesa"
                             name="motivoProblemaJusticaJaponesa"
@@ -1557,6 +1697,19 @@ function Home() {
                         />
                     </div>
                 )}
+                <div className="form-group">
+                    <label htmlFor="foto">Mais imagens (Foto do corpo e Tatuagens, se tiver):</label>
+                    <input
+                        type="file"
+                        id="foto02"
+                        name="foto02"
+                        accept="image/*"
+                        onChange={handleFileChange2}
+                    />
+                </div>
+
+
+
 
 
                 <button type="submit">Enviar</button>

@@ -218,6 +218,8 @@ button[type="submit"]:hover {
 
 .download-button:hover {
   background: #218838;
+  color: rgba(0, 0, 0, 0.159) !important;
+
 }
 
 /* Estilo para ajustar o zoom da página */
@@ -594,4 +596,10 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: rgba(249, 17, 17, 255);
+}
+
+.text-com-margin-nega {
+  margin-top: 40px !important;
+  margin-bottom: 30px !important;
+  text-align: center;
 }
